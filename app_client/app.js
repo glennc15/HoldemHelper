@@ -20,9 +20,9 @@
         controllerAs: 'vm'
       })
       .when('/', {
-        templateUrl: '/powerRSI/overviw.view.html'
-        // controller: 'locationDetailCtrl',
-        // controllerAs: 'vm'
+        templateUrl: '/powerRSI_overview/overview.view.html',
+        controller: 'overviewCtrl',
+        controllerAs: 'vm'
       })
 
       .otherwise({redirectTo: '/'});
