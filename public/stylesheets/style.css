@@ -10,3 +10,10 @@
 
 .rsi-card {border-width: 12px;
 			margin: 10px;}
+
+/*a {text-decoration: none;}			*/
+
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
