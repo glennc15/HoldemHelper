@@ -7,30 +7,6 @@
     var overview = function() {
       var data = [
         {
-          symbol: 'SPY',
-          current_spot: 281.83,
-          current_rsi: 27,
-          rsi_entry_point: 30,
-          ma: 231.0,
-          trade_active: false
-        },
-        {
-          symbol: 'QQQ',
-          current_spot: 251.76,
-          current_rsi: 22,
-          rsi_entry_point: 30,
-          ma: 201.0,
-          trade_active: false
-        },
-        {
-          symbol: 'IWM',
-          current_spot: 166.07,
-          current_rsi: 27,
-          rsi_entry_point: 30,
-          ma: 130.0,
-          trade_active: false
-        },
-        {
           symbol: 'SPX',
           current_spot: 2818.37,
           current_rsi: 45,
@@ -61,7 +37,31 @@
           rsi_entry_point: 30,
           ma: 17,
           trade_active: false
-        }
+        },
+        {
+          symbol: 'SPY',
+          current_spot: 281.83,
+          current_rsi: 27,
+          rsi_entry_point: 30,
+          ma: 231.0,
+          trade_active: false
+        },
+        {
+          symbol: 'QQQ',
+          current_spot: 251.76,
+          current_rsi: 22,
+          rsi_entry_point: 30,
+          ma: 201.0,
+          trade_active: false
+        },
+        {
+          symbol: 'IWM',
+          current_spot: 166.07,
+          current_rsi: 24,
+          rsi_entry_point: 30,
+          ma: 130.0,
+          trade_active: false
+        },
       ];
 
       // begin - original data

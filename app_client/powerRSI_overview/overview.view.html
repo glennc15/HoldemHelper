@@ -108,7 +108,7 @@
           <div class="card rsi-card bg-dark" ng-class="{'text-warning': rsi_data.trade_active, 'border-warning':rsi_data.trade_active, 'text-success':rsi_data.ma_rsi_ok, 'border-success':rsi_data.ma_rsi_ok, 'text-danger':rsi_data.ma_ok_rsi_no, 'border-danger':rsi_data.ma_ok_rsi_no, 'bg-dark':rsi_data.ma_no, 'text-secondary':rsi_data.ma_no, 'border-secondary':rsi_data.ma_no}">
             <div class="card-body text-center">
               <h4 class="card-title">{{ rsi_data.symbol }}</h4>
-              <h5 class="card-text">RSI: {{ rsi_data.current_rsi }}</h5>
+              <h5 class="card-text">RSI: {{ rsi_data.current_rsi | number:0 }}</h5>
             </div>
           </div>
         </a>

@@ -4,15 +4,32 @@
     .module('loc8rApp')
     .controller('overviewCtrl', overviewCtrl);
 
-    overviewCtrl.$inject = ['$scope', 'powerRSI_Data', 'overviewData'];
-    function overviewCtrl ($scope, powerRSI_Data, overviewData) {
+    overviewCtrl.$inject = ['$scope', 'powerRSI_Data', 'overviewData', '$interval'];
+    function overviewCtrl ($scope, powerRSI_Data, overviewData, $interval) {
       var vm = this;
 
 
       // $scope.data = {power_rsis: powerRSI_Data.overview()}
       // console.log($scope.data);
 
-      $scope.data = {power_rsis: overviewData.formatData(powerRSI_Data.overview())};
+
+      var raw_data = powerRSI_Data.overview();
+      $scope.data = {power_rsis: overviewData.formatData(raw_data)};
+      
+
+
+      $interval(function() {
+            raw_data = raw_data.map(function(rsi_obj) {
+                  var step = Math.sqrt(-2 * Math.log(Math.random()))*Math.cos((2*Math.PI) * Math.random())
+                  rsi_obj.current_rsi = rsi_obj.current_rsi + step;
+
+                  return rsi_obj;
+            });
+
+            $scope.data = {power_rsis: overviewData.formatData(raw_data)};
+
+      }, 1000);
+
       // console.log({power_rsis: overviewData.overviewData});
 
       // *** start hard coded data
