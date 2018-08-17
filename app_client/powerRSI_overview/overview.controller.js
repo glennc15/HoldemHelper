@@ -4,11 +4,16 @@
     .module('loc8rApp')
     .controller('overviewCtrl', overviewCtrl);
 
-    overviewCtrl.$inject = ['$scope', 'powerRSI_Data'];
-    function overviewCtrl ($scope, powerRSI_Data) {
+    overviewCtrl.$inject = ['$scope', 'powerRSI_Data', 'overviewData'];
+    function overviewCtrl ($scope, powerRSI_Data, overviewData) {
       var vm = this;
 
-      $scope.data = {power_rsis: powerRSI_Data.overview()}
+
+      // $scope.data = {power_rsis: powerRSI_Data.overview()}
+      console.log($scope.data);
+
+      $scope.data = {power_rsis: overviewData.overviewData};
+      // console.log({power_rsis: overviewData.overviewData});
 
       // *** start hard coded data
       // $scope.data = {
