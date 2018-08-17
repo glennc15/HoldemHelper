@@ -10,9 +10,9 @@
 
 
       // $scope.data = {power_rsis: powerRSI_Data.overview()}
-      console.log($scope.data);
+      // console.log($scope.data);
 
-      $scope.data = {power_rsis: overviewData.overviewData};
+      $scope.data = {power_rsis: overviewData.formatData(powerRSI_Data.overview())};
       // console.log({power_rsis: overviewData.overviewData});
 
       // *** start hard coded data
