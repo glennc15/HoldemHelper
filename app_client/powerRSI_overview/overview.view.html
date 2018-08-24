@@ -7,160 +7,18 @@
     </div>
   </div>
 
-  <!-- <div class="row"> -->
-
-    <!-- Meet MA criteria, meet RSI criteria -->
-<!--     <div class="col-xs-12 col-sm-3">
-      <div class="card rsi-card bg-dark text-success border-success">
-        <div class="card-body text-center">
-          <h4 class="card-title">AAPL</h4>
-          <h5 class="card-text">RSI: 23</h5>
+  <div class="row">
+    <div class="col-xs-12 col-sm-3" ng-repeat="rsi_data in data.power_rsis">
+      <a href="#/overview/{{ rsi_data.symbol}}">
+        <div class="card rsi-card bg-dark" ng-class="{'text-warning': rsi_data.trade_active, 'border-warning':rsi_data.trade_active, 'text-success':rsi_data.ma_rsi_ok, 'border-success':rsi_data.ma_rsi_ok, 'text-danger':rsi_data.ma_ok_rsi_no, 'border-danger':rsi_data.ma_ok_rsi_no, 'bg-dark':rsi_data.ma_no, 'text-secondary':rsi_data.ma_no, 'border-secondary':rsi_data.ma_no}">
+          <div class="card-body text-center">
+            <h4 class="card-title">{{ rsi_data.symbol }}</h4>
+            <h5 class="card-text">RSI: {{ rsi_data.current_rsi | number:1 }}</h5>
+          </div>  
         </div>
-      </div>
-    </div> -->
-
-    <!-- Meet MA criteria, meet RSI criteria -->
-<!--     <div class="col-xs-12 col-sm-3">
-      <div class="card rsi-card bg-dark text-success border-success">
-        <div class="card-body text-center">
-          <h4 class="card-title">AMZN</h4>
-          <h5 class="card-text">RSI: 23</h5>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Active trade -->
-<!--     <div class="col-xs-12 col-sm-3">
-      <div class="card rsi-card bg-dark text-warning border-warning">
-        <div class="card-body text-center">
-          <h4 class="card-title">SPX</h4>
-          <h5 class="card-text">RSI: 28</h5>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Active trade -->
-<!--     <div class="col-xs-12 col-sm-3">
-      <div class="card rsi-card bg-dark text-warning border-warning">
-        <div class="card-body text-center">
-          <h4 class="card-title">XLK</h4>
-          <h5 class="card-text">RSI: 28</h5>
-        </div>
-      </div>
-    </div> -->
-
-
-
-  <!-- </div> -->
-
-  <!-- <div class="row"> -->
-
-    <!-- Meet MA criteria, does not meet RSI criteria -->
-<!--     <div class="col-xs-12 col-sm-3">
-      <div class="card rsi-card bg-dark text-danger border-danger">
-        <div class="card-body text-center">
-          <h4 class="card-title">QQQ</h4>
-          <h5 class="card-text">RSI: 53</h5>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Meet MA criteria, does not meet RSI criteria -->
-<!--     <div class="col-xs-12 col-sm-3">
-      <div class="card rsi-card bg-dark text-danger border-danger">
-        <div class="card-body text-center">
-          <h4 class="card-title">GLD</h4>
-          <h5 class="card-text">RSI: 53</h5>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Does not meet MA criteria -->
-<!--     <div class="col-xs-12 col-sm-3">
-      <div class="card rsi-card bg-dark text-white border-secondary">
-        <div class="card-body text-center">
-          <h4 class="card-title">IWM</h4>
-          <h5 class="card-text">RSI: 25</h5>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Does not meet MA criteria -->
-<!--     <div class="col-xs-12 col-sm-3">
-      <div class="card rsi-card bg-dark text-white border-secondary">
-        <div class="card-body text-center">
-          <h4 class="card-title">DIA</h4>
-          <h5 class="card-text">RSI: 25</h5>
-        </div>
-      </div>
-    </div> -->
-
-
-  <!-- </div> -->
-
-
-  <!-- <p>{{ data.power_rsis }}</p> -->
-
-  <div ng-repeat="rsi_row in data.power_rsis">
-    <div class="row">
-      <div class="col-xs-12 col-sm-3" ng-repeat="rsi_data in rsi_row">
-        <a href="#/overview/{{ rsi_data.symbol}}">
-          <div class="card rsi-card bg-dark" ng-class="{'text-warning': rsi_data.trade_active, 'border-warning':rsi_data.trade_active, 'text-success':rsi_data.ma_rsi_ok, 'border-success':rsi_data.ma_rsi_ok, 'text-danger':rsi_data.ma_ok_rsi_no, 'border-danger':rsi_data.ma_ok_rsi_no, 'bg-dark':rsi_data.ma_no, 'text-secondary':rsi_data.ma_no, 'border-secondary':rsi_data.ma_no}">
-            <div class="card-body text-center">
-              <h4 class="card-title">{{ rsi_data.symbol }}</h4>
-              <h5 class="card-text">RSI: {{ rsi_data.current_rsi | number:0 }}</h5>
-            </div>
-          </div>
-        </a>
-      </div>
+      </a>
     </div>
   </div>
   
-
-  <p>{{ stuff }}</p>  
-                <!-- trade_active: false, -->
-              <!-- ma_rsi_ok: false, -->
-              <!-- ma_ok_rsi_no: false, -->
-              <!-- ma_no_rsi_no: true -->
-
-<!--             {_id: '5b72c81fff47104a20ce5337',
-            losing_trades: 4,
-            mean_days_in_trade: 3.869565217391304,
-            mean_return_per_losing_trade: -2.0352573525877076,
-            mean_return_per_trade: 1.5914743814223755,
-            mean_return_per_winning_trade: 1.7563258238773785,
-            number_of_trades: 92,
-            percent_correct_trades: 0.9565217391304348,
-            symbol: '^GSPC',
-            winning_trades: 88
-          }, -->
-<!--   <page-header content="vm.pageHeader"></page-header>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-8">
-      <label for="filter">Filter results</label>
-      <input id="filter" type="text", name="filter", ng-model="textFilter">
-      <div class="error">{{ vm.message }}</div>
-      <div class="row list-group">
-        <div class="col-xs-12 list-group-item" ng-repeat="location in vm.data.locations | filter : textFilter">
-          <h4>
-            <a href="#/location/{{ location._id }}">{{ location.name }}</a>
-            <small class="rating-stars" rating-stars rating="location.rating"></small>
-            <span class="badge pull-right badge-default">{{ location.distance | formatDistance }}</span>
-          </h4>
-          <p class="address">{{ location.address }}</p>
-          <p>
-            <span class="label label-warning label-facility" ng-repeat="facility in location.facilities">
-              {{ facility }}
-            </span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <p class="lead">{{ vm.sidebar.content }}</p>
-    </div>
-  </div> -->
-
   <!-- <footer-generic></footer-generic> -->
 </div>

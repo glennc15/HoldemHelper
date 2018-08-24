@@ -59,22 +59,95 @@
 
       // var raw_powerRSI_data = powerRSI_Data.overview();
 
-      // state: ma and rsi criteria are met: 
+      // state: ma and rsi criteria are met:
+
+      // var ma_rsi_ok = raw_powerRSI_data.filter(function(rsi_obj) {
+      //   if((rsi_obj.current_spot>=rsi_obj.ma) && (rsi_obj.current_rsi<=rsi_obj.rsi_entry_point) && (!rsi_obj.trade_active)) {
+      //     return true;
+      //   }
+      // }).map(function(rsi_obj) {
+      //     var new_rsi_obj = {
+      //       symbol: rsi_obj.symbol,
+      //       current_rsi: rsi_obj.current_rsi,
+      //       trade_active: false,
+      //       ma_rsi_ok: true,
+      //       ma_ok_rsi_no: false,
+      //       ma_no: false
+      //     };
+
+      //     return new_rsi_obj;
+      // }).sort(function(obj_a, obj_b) {
+      //   return (obj_a.current_rsi - obj_b.current_rsi);
+      // });
+
+      // // state: active trade:
+      // var active_trades = raw_powerRSI_data.filter(function(rsi_obj) {
+      //   if (rsi_obj.trade_active) {
+      //     return true;
+      //   }
+      // }).map(function(rsi_obj) {
+      //   var new_rsi_obj = {
+      //     symbol: rsi_obj.symbol,
+      //     current_rsi: rsi_obj.current_rsi,
+      //     trade_active: true,
+      //     ma_rsi_ok: false,
+      //     ma_ok_rsi_no: false,
+      //     ma_no: false
+      //   };
+
+      //   return new_rsi_obj;
+      // }).sort(function(obj_a, obj_b) {
+      //   return (obj_b.current_rsi - obj_a.current_rsi);
+      // });
+
+      // // state: ma criteria met, rsi criteria not met:
+      // var ma_ok_rsi_no = raw_powerRSI_data.filter(function(rsi_obj) {
+      //   if ((rsi_obj.current_spot>=rsi_obj.ma) && (rsi_obj.current_rsi>rsi_obj.rsi_entry_point) && (!rsi_obj.trade_active)) {
+      //     return true;
+      //   }
+      // }).map(function(rsi_obj) {
+      //   var new_rsi_obj = {
+      //     symbol: rsi_obj.symbol,
+      //     current_rsi: rsi_obj.current_rsi,
+      //     trade_active: false,
+      //     ma_rsi_ok: false,
+      //     ma_ok_rsi_no: true,
+      //     ma_no: false
+      //   };
+
+      //   return new_rsi_obj;
+      // }).sort(function(obj_a, obj_b) {
+      //   return (obj_a.current_rsi - obj_b.current_rsi);
+      // });
+
+
+      // // state: ma not met, rsi not not met:
+      // var ma_no_rsi_no = raw_powerRSI_data.filter(function(rsi_obj) {
+      //   if ((rsi_obj.current_spot<rsi_obj.ma) && (!rsi_obj.trade_active)) {
+      //     return true;
+      //   }
+      // }).map(function(rsi_obj) {
+      //   var new_rsi_obj = {
+      //     symbol: rsi_obj.symbol,
+      //     current_rsi: rsi_obj.current_rsi,
+      //     trade_active: false,
+      //     ma_rsi_ok: false,
+      //     ma_ok_rsi_no: false,
+      //     ma_no: true
+      //   };
+
+      //   return new_rsi_obj;
+      // }).sort(function(obj_a, obj_b) {
+      //   return (obj_a.current_rsi - obj_b.current_rsi);
+      // });
+
+      // // TODO: 17-Aug-2018: Break results array into an array of arrays. Saving
+      // // this because good enough for right now.
+      // return [ma_rsi_ok.concat(active_trades.concat(ma_ok_rsi_no.concat(ma_no_rsi_no)))];
       var ma_rsi_ok = raw_powerRSI_data.filter(function(rsi_obj) {
-        if((rsi_obj.current_spot>=rsi_obj.ma) && (rsi_obj.current_rsi<=rsi_obj.rsi_entry_point) && (!rsi_obj.trade_active)) {
+        if(rsi_obj.ma_rsi_ok) {
           return true;
         }
-      }).map(function(rsi_obj) {
-          var new_rsi_obj = {
-            symbol: rsi_obj.symbol,
-            current_rsi: rsi_obj.current_rsi,
-            trade_active: false,
-            ma_rsi_ok: true,
-            ma_ok_rsi_no: false,
-            ma_no: false
-          };
-
-          return new_rsi_obj;
       }).sort(function(obj_a, obj_b) {
         return (obj_a.current_rsi - obj_b.current_rsi);
       });
@@ -84,37 +157,15 @@
         if (rsi_obj.trade_active) {
           return true;
         }
-      }).map(function(rsi_obj) {
-        var new_rsi_obj = {
-          symbol: rsi_obj.symbol,
-          current_rsi: rsi_obj.current_rsi,
-          trade_active: true,
-          ma_rsi_ok: false,
-          ma_ok_rsi_no: false,
-          ma_no: false
-        };
-
-        return new_rsi_obj;
       }).sort(function(obj_a, obj_b) {
         return (obj_b.current_rsi - obj_a.current_rsi);
       });
 
       // state: ma criteria met, rsi criteria not met:
       var ma_ok_rsi_no = raw_powerRSI_data.filter(function(rsi_obj) {
-        if ((rsi_obj.current_spot>=rsi_obj.ma) && (rsi_obj.current_rsi>rsi_obj.rsi_entry_point) && (!rsi_obj.trade_active)) {
+        if (rsi_obj.ma_ok_rsi_no) {
           return true;
         }
-      }).map(function(rsi_obj) {
-        var new_rsi_obj = {
-          symbol: rsi_obj.symbol,
-          current_rsi: rsi_obj.current_rsi,
-          trade_active: false,
-          ma_rsi_ok: false,
-          ma_ok_rsi_no: true,
-          ma_no: false
-        };
-
-        return new_rsi_obj;
       }).sort(function(obj_a, obj_b) {
         return (obj_a.current_rsi - obj_b.current_rsi);
       });
@@ -122,27 +173,14 @@
 
       // state: ma not met, rsi not not met:
       var ma_no_rsi_no = raw_powerRSI_data.filter(function(rsi_obj) {
-        if ((rsi_obj.current_spot<rsi_obj.ma) && (!rsi_obj.trade_active)) {
+        if (rsi_obj.ma_no) {
           return true;
         }
-      }).map(function(rsi_obj) {
-        var new_rsi_obj = {
-          symbol: rsi_obj.symbol,
-          current_rsi: rsi_obj.current_rsi,
-          trade_active: false,
-          ma_rsi_ok: false,
-          ma_ok_rsi_no: false,
-          ma_no: true
-        };
-
-        return new_rsi_obj;
       }).sort(function(obj_a, obj_b) {
         return (obj_a.current_rsi - obj_b.current_rsi);
       });
 
-      // TODO: 17-Aug-2018: Break results array into an array of arrays. Saving
-      // this because good enough for right now.
-      return [ma_rsi_ok.concat(active_trades.concat(ma_ok_rsi_no.concat(ma_no_rsi_no)))];
+      return ma_rsi_ok.concat(active_trades.concat(ma_ok_rsi_no.concat(ma_no_rsi_no)));
     };
            
 
