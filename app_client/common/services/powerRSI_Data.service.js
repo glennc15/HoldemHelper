@@ -6,7 +6,7 @@
   powerRSI_Data.$inject = ['$http'];
   function powerRSI_Data($http) {
     var overview = function() {
-      return $http.get("http://127.0.0.1:5000/powerRSI_api/overview");
+      return $http.get("http://127.0.0.1:5000/api/powerRSI/overview");
     };
 
     return {
