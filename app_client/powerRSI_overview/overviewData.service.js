@@ -177,10 +177,10 @@
           return true;
         }
       }).sort(function(obj_a, obj_b) {
-        return (obj_a.current_rsi - obj_b.current_rsi);
+        return (obj_a.symbol.charCodeAt(0) - obj_b.symbol.charCodeAt(0));
       });
 
-      return ma_rsi_ok.concat(active_trades.concat(ma_ok_rsi_no.concat(ma_no_rsi_no)));
+      return ma_rsi_ok.concat(active_trades.concat(ma_ok_rsi_no.slice(0,10).concat(ma_no_rsi_no)));
     };
            
 

@@ -7,18 +7,46 @@
     </div>
   </div>
 
+<!--   <i class="fas fa-bolt text-success"></i>
+  <i class="fas fa-bolt text-warning"></i>      
+  <i class="fas fa-grip-vertical text-success"></i>
+  <i class="fas fa-grip-vertical text-warning"></i>
+  <i class="fas fa-chart-line text-success"></i>
+  <i class="fas fa-chart-line text-warning"></i>
+  <i class="fas fa-dollar-sign text-success"></i>
+  <i class="fas fa-dollar-sign text-warning"></i>
+  <i class="fas fa-signal text-success"></i>
+  <i class="fas fa-signal text-warning"></i>
+  <i class="fas fa-bezier-curve text-success"></i>
+  <i class="fas fa-bezier-curve text-warning"></i>
+  <i class="fas fa-vector-square text-success"></i>
+  <i class="fas fa-vector-square text-warning"></i>
+  <i class="fab fa-vector-square text-success"></i>
+  <i class="fab fa-vector-square text-warning"></i> -->
+
+
+
   <div class="row">
-    <div class="col-xs-12 col-sm-3" ng-repeat="rsi_data in data.power_rsis">
+    <div class="col-xs-12 col-sm-3" ng-repeat="rsi_data in vm.data.power_rsis">
       <a href="#/overview/{{ rsi_data.symbol}}">
         <div class="card rsi-card bg-dark" ng-class="{'text-warning': rsi_data.trade_active, 'border-warning':rsi_data.trade_active, 'text-success':rsi_data.ma_rsi_ok, 'border-success':rsi_data.ma_rsi_ok, 'text-danger':rsi_data.ma_ok_rsi_no, 'border-danger':rsi_data.ma_ok_rsi_no, 'bg-dark':rsi_data.ma_no, 'text-secondary':rsi_data.ma_no, 'border-secondary':rsi_data.ma_no}">
+          <div class="card-header text-muted">
+            <div class="float-left"><h7>RSI:</h7></div>
+            <div class="float-right"><h7>{{ rsi_data.current_rsi | number:1 }}</h7></div>
+          </div>
           <div class="card-body text-center">
             <h4 class="card-title">{{ rsi_data.symbol }}</h4>
-            <h5 class="card-text">RSI: {{ rsi_data.current_rsi | number:1 }}</h5>
+          </div>
+          <div class="card-footer text-muted">
+            <div class="float-left"><h7><i class="fas fa-bolt" ng-class="rsi_data.daily_rsi_ok ? 'text-success' : 'text-body'"></i></h7></div>
+            <div class="float-right"><h7><i class="fas fa-chart-line" ng-class="rsi_data.intraday_rsi_ok ? 'text-success' : 'text-body'"></i></h7></div>
+          </div>
           </div>  
         </div>
       </a>
     </div>
   </div>
   
+  <p><span class="octicon octicon-octoface"></span></p>
   <!-- <footer-generic></footer-generic> -->
 </div>

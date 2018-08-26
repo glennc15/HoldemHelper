@@ -11,7 +11,8 @@
     
       powerRSI_Data.overview()
         .success(function(data) {
-          $scope.data = {power_rsis: overviewData.formatData(data)};
+          vm.data = {power_rsis: overviewData.formatData(data)};
+          // $scope.data = {power_rsis: overviewData.formatData(data)};
         })
         .error(function (e) {
           console.log(e);
@@ -23,7 +24,8 @@
 
         powerRSI_Data.overview()
           .success(function(data) {
-            $scope.data = {power_rsis: overviewData.formatData(data)};
+            vm.data = {power_rsis: overviewData.formatData(data)};
+            // $scope.data = {power_rsis: overviewData.formatData(data)};
           })
           .error(function (e) {
             console.log(e);
