@@ -26,6 +26,7 @@ var appClientFiles = [
   'app_client/reviewModal/reviewModal.controller.js',
   'app_client/powerRSI_overview/overview.controller.js',
   'app_client/powerRSI_overview/overviewData.service.js',
+  'app_client/powerRSI_details/details.controller.js',
   'app_client/common/services/geolocation.service.js',
   'app_client/common/services/loc8rData.service.js',
   'app_client/common/services/powerRSI_Data.service.js',

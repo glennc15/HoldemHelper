@@ -19,13 +19,18 @@
         controller: 'locationDetailCtrl',
         controllerAs: 'vm'
       })
-      .when('/', {
+      .when('/PowerRSI/overview', {
         templateUrl: '/powerRSI_overview/overview.view.html',
         controller: 'overviewCtrl',
         controllerAs: 'vm'
       })
-
-      .otherwise({redirectTo: '/'});
+      .when('/PowerRSI/overview/:symbolid', {
+        templateUrl: '/powerRSI_details/details.view.html',
+        controller: 'detailsCtrl',
+        controllerAs: 'vm'
+      })
+      .otherwise({redirectTo: '/PowerRSI/overview'});
+      // .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API
     $locationProvider.html5Mode(true);

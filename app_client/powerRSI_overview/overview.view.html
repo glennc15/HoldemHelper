@@ -28,7 +28,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-3" ng-repeat="rsi_data in vm.data.power_rsis">
-      <a href="#/overview/{{ rsi_data.symbol}}">
+      <a href="/PowerRSI/overview/{{ rsi_data.symbol}}">
         <div class="card rsi-card bg-dark" ng-class="{'text-warning': rsi_data.trade_active, 'border-warning':rsi_data.trade_active, 'text-success':rsi_data.ma_rsi_ok, 'border-success':rsi_data.ma_rsi_ok, 'text-danger':rsi_data.ma_ok_rsi_no, 'border-danger':rsi_data.ma_ok_rsi_no, 'bg-dark':rsi_data.ma_no, 'text-secondary':rsi_data.ma_no, 'border-secondary':rsi_data.ma_no}">
           <div class="card-header text-muted">
             <div class="float-left"><h7>RSI:</h7></div>
