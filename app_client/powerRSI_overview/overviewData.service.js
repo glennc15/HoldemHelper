@@ -86,7 +86,6 @@
       }).sort(function(obj_a, obj_b) {
         return (obj_a.current_rsi - obj_b.current_rsi);
       });
-
       // state: ma not met, rsi not not met:
       var ma_no_rsi_no = raw_powerRSI_data.filter(function(rsi_obj) {
         if (rsi_obj.ma_no) {
@@ -96,7 +95,7 @@
         return (obj_a.symbol.charCodeAt(0) - obj_b.symbol.charCodeAt(0));
       });
 
-      return ma_rsi_ok.concat(active_trades.concat(ma_ok_rsi_no.slice(0,10).concat(ma_no_rsi_no)));
+      return ma_rsi_ok.concat(active_trades.concat(ma_ok_rsi_no.concat(ma_no_rsi_no)));
     };
            
 

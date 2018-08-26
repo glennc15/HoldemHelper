@@ -10,7 +10,9 @@
 
       powerRSI_Data.overview()
         .success(function(data) {
+          // vm.data = {power_rsis: data};
           vm.data = {power_rsis: overviewData.formatData(data)};
+
           // $scope.data = {power_rsis: overviewData.formatData(data)};
         })
         .error(function (e) {

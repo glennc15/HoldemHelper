@@ -9,8 +9,13 @@
       return $http.get("http://127.0.0.1:5000/api/powerRSI/overview");
     };
 
+    var details_data = function(symbol) {
+      return $http.get("http://127.0.0.1:5000/api/powerRSI/overview/" + symbol);
+    };
+
     return {
-      overview: overview
+      overview: overview,
+      details_data: details_data
     };
 
   };
