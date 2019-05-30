@@ -137,6 +137,13 @@
           chart: {
             height: "60%"
           },
+          plotOptions: {
+            candlestick: 
+            {
+              color: 'red',
+              upColor: 'green'
+            }
+          },
           yAxis: 
           [
             {

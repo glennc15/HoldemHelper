@@ -11,6 +11,18 @@
 .rsi-card {border-width: 12px;
 			margin: 10px;}
 
+.card-input {
+	width: 50px;
+	/*padding: 10px;*/
+	margin-right: 15px;
+}
+
+.pot-input {
+	width: 100px;
+	/*padding: 10px;*/
+	/*margin-right: 15px;*/
+}
+
 /*a {text-decoration: none;}			*/
 
 

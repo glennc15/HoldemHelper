@@ -20,31 +20,33 @@ app.set('view engine', 'jade');
 
 var appClientFiles = [
   'app_client/app.js',
-  'app_client/home/home.controller.js',
-  'app_client/about/about.controller.js',
-  'app_client/locationDetail/locationDetail.controller.js',
-  'app_client/reviewModal/reviewModal.controller.js',
-  'app_client/powerRSI_overview/overview.controller.js',
-  'app_client/powerRSI_overview/overviewData.service.js',
-  'app_client/powerRSI_details/details.controller.js',
-  'app_client/powerRSI_details/details_components.service.js',
-  'app_client/common/services/geolocation.service.js',
-  'app_client/common/services/loc8rData.service.js',
-  'app_client/common/services/powerRSI_Data.service.js',
-  'app_client/common/filters/formatDistance.filter.js',
-  'app_client/common/filters/addHtmlLineBreaks.filter.js',
-  'app_client/common/directives/navigation/navigation.directive.js',
-  'app_client/common/directives/footerGeneric/footerGeneric.directive.js',
-  'app_client/common/directives/pageHeader/pageHeader.directive.js',
-  'app_client/common/directives/ratingStars/ratingStars.directive.js'
+  'app_client/holdemHome/holdemHome.controller.js',
+  'app_client/common/services/holeOdds.service.js'
+  // 'app_client/home/home.controller.js',
+  // 'app_client/about/about.controller.js',
+  // 'app_client/locationDetail/locationDetail.controller.js',
+  // 'app_client/reviewModal/reviewModal.controller.js',
+  // 'app_client/powerRSI_overview/overview.controller.js',
+  // 'app_client/powerRSI_overview/overviewData.service.js',
+  // 'app_client/powerRSI_details/details.controller.js',
+  // 'app_client/powerRSI_details/details_components.service.js',
+  // 'app_client/common/services/geolocation.service.js',
+  // 'app_client/common/services/loc8rData.service.js',
+  // 'app_client/common/services/powerRSI_Data.service.js',
+  // 'app_client/common/filters/formatDistance.filter.js',
+  // 'app_client/common/filters/addHtmlLineBreaks.filter.js',
+  // 'app_client/common/directives/navigation/navigation.directive.js',
+  // 'app_client/common/directives/footerGeneric/footerGeneric.directive.js',
+  // 'app_client/common/directives/pageHeader/pageHeader.directive.js',
+  // 'app_client/common/directives/ratingStars/ratingStars.directive.js'
 ];
 var uglified = uglifyJs.minify(appClientFiles, { compress : false });
 
-fs.writeFile('public/angular/loc8r.min.js', uglified.code, function (err){
+fs.writeFile('public/angular/holdem.min.js', uglified.code, function (err){
   if(err) {
     console.log(err);
   } else {
-    console.log("Script generated and saved:", 'loc8r.min.js');
+    console.log("Script generated and saved:", 'holdem.min.js');
   }
 });
 

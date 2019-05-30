@@ -28,172 +28,156 @@
 
           var histReturnsSummaryChart = detailComponents.histReturnsSummaryChart(data['backtest_data']['returns_data']);
           
-          
+          var daily_ohlc_chart = detailComponents.dailyOHLCChart(
+                                      chart_symbol=$routeParams.symbolid, 
+                                      ohlc_data=data['daily_data']['ohlc_series'], 
+                                      volume_data=data['daily_data']['volume_series']
+                                    );
+
+          var groupingUnits = 
+            [
+              ['week', [1]], 
+              ['month', [1, 2, 3, 4, 6]]
+            ];
+
+          var chart_symbol = $routeParams.symbolid;
+          var ohlc_data = data['daily_data']['ohlc_series'];
+          var volume_data = data['daily_data']['volume_series'];
 
 
+          Highcharts.stockChart('intraday_ohlc_chart', 
+            {
 
+              rangeSelector: 
+              {
+                selected: 1
+              },
 
-          // **********
+              title: 
+              {
+                text: chart_symbol + " Intraday"
+              },
 
-          // $.getJSON('https://www.highcharts.com/samples/data/aapl-ohlc.json', function (data) {
+              chart: {
+                height: "50%"
+              },
 
-          // ****
+              yAxis: 
+              [
+                {
+                  labels: 
+                  {
+                    align: 'right',
+                    x: -3
+                  },
+                  title: 
+                  {
+                    text: 'OHLC'
+                  },
+                  height: '60%',
+                  lineWidth: 2,
+                  resize: 
+                  {
+                    enabled: true
+                  }
+                }, 
+                {
+                  labels: 
+                  {
+                    align: 'right',
+                    x: -3
+                  },
+                  title: 
+                  {
+                    text: 'Volume'
+                  },
+                  top: '65%',
+                  height: '30%',
+                  offset: 0,
+                  lineWidth: 2
+                },
+                {
+                  labels: 
+                  {
+                    align: 'right',
+                    x: -3
+                  },
+                  title: 
+                  {
+                    text: 'RSI'
+                  },
+                  top: '100%',
+                  height: '20%',
+                  offset: 0,
+                  lineWidth: 2
+                }
+              ],
 
-          // var ohlc_data = data['daily_data']['ohlc_series'];
-          // var volume_data = data['daily_data']['volume_series'];
+              tooltip: 
+              {
+                split: true
+              },
 
+              series: 
+              [
+                {
+                  type: 'candlestick',
+                  name: chart_symbol,
+                  id: 'aapl',
+                  yAxis: 0,
+                  // zIndex: 2,
+                  data: ohlc_data,
+                  dataGrouping: 
+                  {
+                      units: groupingUnits
+                  }
+                },
+                {
+                  type: 'sma',
+                  linkedTo: 'aapl',
+                  // zIndex: 1,
+                  tooltip: 
+                  {
+                    valueDecimals: 2
+                  },
+                  marker: 
+                  {
+                    enabled: false
+                  },
+                  params: 
+                  {
+                    period: 200
+                  }
+                }, 
+                {
+                  type: 'column',
+                  name: 'Volume',
+                  // id: 'volume-series',
+                  data: volume_data,
+                  yAxis: 1,
+                  // dataGrouping: {
+                  //     units: groupingUnits
+                  // }
+                }, 
 
-        
-
-          // var groupingUnits = [[
-          //     'week',                         // unit name
-          //     [1]                             // allowed multiples
-          //   ], 
-          //   [
-          //     'month',
-          //     [1, 2, 3, 4, 6]
-          //   ]
-          // ];
-
-          // var chart_symbol = $routeParams.symbolid;
-          // ***
-              // create the chart
-
-          var daily_ohlc_chart = detailComponents.dailyOHLCChart(chart_symbol=$routeParams.symbolid, ohlc_data=data['daily_data']['ohlc_series'], volume_data=data['daily_data']['volume_series']);
-
-          // Highcharts.stockChart('daily_ohlc_chart', 
-          //   {
-
-          //     rangeSelector: 
-          //     {
-          //       selected: 1
-          //     },
-
-          //     title: 
-          //     {
-          //       text: chart_symbol + " Daily"
-          //     },
-
-          //     chart: {
-          //       height: "50%"
-          //     },
-
-          //     yAxis: 
-          //     [
-          //       {
-          //         labels: 
-          //         {
-          //           align: 'right',
-          //           x: -3
-          //         },
-          //         title: 
-          //         {
-          //           text: 'OHLC'
-          //         },
-          //         height: '60%',
-          //         lineWidth: 2,
-          //         resize: 
-          //         {
-          //           enabled: true
-          //         }
-          //       }, 
-          //       {
-          //         labels: 
-          //         {
-          //           align: 'right',
-          //           x: -3
-          //         },
-          //         title: 
-          //         {
-          //           text: 'Volume'
-          //         },
-          //         top: '65%',
-          //         height: '30%',
-          //         offset: 0,
-          //         lineWidth: 2
-          //       },
-          //       {
-          //         labels: 
-          //         {
-          //           align: 'right',
-          //           x: -3
-          //         },
-          //         title: 
-          //         {
-          //           text: 'RSI'
-          //         },
-          //         top: '100%',
-          //         height: '20%',
-          //         offset: 0,
-          //         lineWidth: 2
-          //       }
-          //     ],
-
-          //     tooltip: 
-          //     {
-          //       split: true
-          //     },
-
-          //     series: 
-          //     [
-          //       {
-          //         type: 'candlestick',
-          //         name: chart_symbol,
-          //         id: 'aapl',
-          //         yAxis: 0,
-          //         // zIndex: 2,
-          //         data: ohlc_data,
-          //         dataGrouping: 
-          //         {
-          //             units: groupingUnits
-          //         }
-          //       },
-          //       {
-          //         type: 'sma',
-          //         linkedTo: 'aapl',
-          //         // zIndex: 1,
-          //         tooltip: 
-          //         {
-          //           valueDecimals: 2
-          //         },
-          //         marker: 
-          //         {
-          //           enabled: false
-          //         },
-          //         params: 
-          //         {
-          //           period: 200
-          //         }
-          //       }, 
-          //       {
-          //         type: 'column',
-          //         name: 'Volume',
-          //         // id: 'volume-series',
-          //         data: volume_data,
-          //         yAxis: 1,
-          //         // dataGrouping: {
-          //         //     units: groupingUnits
-          //         // }
-          //       }, 
-
-          //       {
-          //         type: 'rsi',
-          //         linkedTo: 'aapl',
-          //         // zIndex: 1,
-          //         yAxis: 2,
-          //         marker: {
-          //             enabled: false
-          //         },
-          //         tooltip: {
-          //           valueDecimals: 2
-          //         },
-          //         params: {
-          //           decimals: 4,
-          //           period: 4
-          //         }
-          //       }
-          //     ]
-          //   });
+                {
+                  type: 'rsi',
+                  linkedTo: 'aapl',
+                  // zIndex: 1,
+                  yAxis: 2,
+                  marker: {
+                      enabled: false
+                  },
+                  tooltip: {
+                    valueDecimals: 2
+                  },
+                  params: {
+                    decimals: 4,
+                    period: 4
+                  }
+                }
+              ]
+            });
 
 
 // series: [{
