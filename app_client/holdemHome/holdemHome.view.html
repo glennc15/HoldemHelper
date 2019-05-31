@@ -1,0 +1,335 @@
+<h1>The Texass Holdem Homepage Yo!</h1>
+
+
+<div class="container-fluid">
+  <!-- title/suggestion row -->
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+      <h1>Call/Bet/Fold Suggestions</h1>
+    </div>
+  </div>
+
+  <!-- Players  -->
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+        <!-- <h2>Players</h2> -->
+
+        <!-- Start: Button group as input for players -->
+       <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons"> -->
+            <!-- <label class="btn btn-secondary"> -->
+                <!-- <input type="radio" name="options" id="option1" autocomplete="off" checked>2 -->
+            <!-- </label> -->
+            <!-- <label class="btn btn-secondary"> -->
+                <!-- <input type="radio" name="options" id="option2" autocomplete="off">3  -->
+            <!-- </label> -->
+            <!-- <label class="btn btn-secondary"> -->
+                <!-- <input type="radio" name="options" id="option3" autocomplete="off">4 -->
+            <!-- </label> -->
+            <!-- <label class="btn btn-secondary"> -->
+                <!-- <input type="radio" name="options" id="option3" autocomplete="off">6 -->
+            <!-- </label> -->
+            <!-- <label class="btn btn-secondary"> -->
+                <!-- <input type="radio" name="options" id="option3" autocomplete="off">8 -->
+            <!-- </label> -->
+            <!-- <label class="btn btn-secondary"> -->
+                <!-- <input type="radio" name="options" id="option3" autocomplete="off">10 -->
+            <!-- </label> -->
+        <!-- </div> -->
+        <!-- End: Button group as input for players -->
+
+        <!-- Start: Radio group as input fo players -->
+        <label for="playersRadio">Players:</label>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input 
+                type="radio" 
+                id="playersRadio2" 
+                name="playersRadio" 
+                class="custom-control-input" 
+                ng-model="playersNumberRadio" 
+                ng-click="vm.setPlayers(2)">
+            <label 
+                class="custom-control-label" 
+                for="playersRadio2">2</label>
+        </div>
+        
+        <div class="custom-control custom-radio custom-control-inline">
+            <input 
+                type="radio" 
+                id="playersRadio3" 
+                name="playersRadio" 
+                class="custom-control-input" 
+                ng-model="playersNumberRadio" 
+                ng-click="vm.setPlayers(3)">
+            <label 
+                class="custom-control-label" 
+                for="playersRadio3">3</label>
+        </div>
+        
+        <div class="custom-control custom-radio custom-control-inline">
+            <input 
+                type="radio" 
+                id="playersRadio4" 
+                name="playersRadio" 
+                class="custom-control-input" 
+                ng-model="playersNumberRadio" 
+                ng-click="vm.setPlayers(4)">
+            <label 
+                class="custom-control-label" 
+                for="playersRadio4">4</label>
+        </div>
+        
+        <div class="custom-control custom-radio custom-control-inline">
+            <input 
+                type="radio" 
+                id="playersRadio6" 
+                name="playersRadio" 
+                class="custom-control-input" 
+                ng-model="playersNumberRadio" 
+                ng-click="vm.setPlayers(6)">
+            <label 
+                class="custom-control-label" 
+                for="playersRadio6">6</label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input 
+                type="radio" 
+                id="playersRadio8" 
+                name="playersRadio" 
+                class="custom-control-input" 
+                ng-model="playersNumberRadio" 
+                ng-click="vm.setPlayers(8)">
+            <label 
+                class="custom-control-label" 
+                for="playersRadio8">8</label>
+        </div>
+        
+        <div class="custom-control custom-radio custom-control-inline">
+            <input 
+                type="radio" 
+                id="playersRadio10" 
+                name="playersRadio" 
+                class="custom-control-input" 
+                ng-model="playersNumberRadio" 
+                ng-click="vm.setPlayers(10)">
+            <label 
+                class="custom-control-label" 
+                for="playersRadio10">10</label>
+        </div>
+
+        <!-- End: Radio group as input fo players -->
+        <h2>Players Selected: {{ vm.numberOfPlayers }}</h2>
+
+      
+    </div>
+  </div>
+
+  <!-- Begin: Blinds Entry -->
+<!--   <div class="row">
+      <div class="col-sm-12 col-lg-6">
+          <div class="control-group">
+              <span class="control-label">Big Blind:</span>
+              <div class="controls form-inline">
+                  <input 
+                    type="text"
+                    class="pot-input"   
+                    value="0"
+                    id="blindInput"
+                    ng-change="vm.setBlinds(blindInput)"
+                    >
+              </div>
+          </div>
+      </div>
+  </div> -->
+  <!-- End: Blinds Entry -->
+
+
+  <!-- Cards and Pot Data entry  -->
+  <div class="row">
+    <!-- Card Data Entry: -->
+    <div class="col-sm-12 col-lg-6">
+      <h2>Board</h2>
+        
+        <!-- Start: Hole cards -->
+        
+        <div class="control-group">
+            <span class="control-label">Hole:</span>
+            <div class="controls form-inline">
+                <input 
+                    type="text" 
+                    class="card-input" 
+                    id="hole_card_1"
+                    ng-model="holeCard1" 
+                    ng-change="vm.holdCardCtrl('holeCard1')"
+                >
+                <input 
+                    type="text" 
+                    class="card-input" 
+                    id="hole_card_2"
+                    ng-model="holeCard2" 
+                    ng-change="vm.holdCardCtrl('holeCard2')"
+                >
+            </div>
+        </div>
+        
+        <!-- End: Hole cards -->
+
+        <!-- Start: Flop cards -->  
+
+        <div class="control-group">
+            <span class="control-label">Flop:</span>
+            <div class="controls form-inline">
+                <!-- <label for="inputKey">Flop</label> -->
+                <input 
+                    type="text" 
+                    class="card-input" 
+                    ng-model="flopCard1"
+                    ng-keydown="$event.keyCode === 13 && vm.parseCard('flopCard1')"
+                    >
+                <input 
+                    type="text" 
+                    class="card-input" 
+                    ng-model="flopCard2"
+                    ng-keydown="$event.keyCode === 13 && vm.parseCard('flopCard2')"
+                    >
+                <input 
+                    type="text" 
+                    class="card-input" 
+                    ng-model="flopCard3"
+                    ng-keydown="$event.keyCode === 13 && vm.parseCard('flopCard3')"
+                    >
+            </div>
+        </div>
+
+        <!-- End: Flop cards -->
+
+        <!-- Start: Turn card -->
+
+        <div class="control-group">
+            <span class="control-label">Turn:</span>
+            <div class="controls form-inline">
+                <!-- <label for="inputKey">Flop</label> -->
+                <input 
+                    type="text" 
+                    class="card-input" 
+                    ng-model="turnCard"
+                    ng-keydown="$event.keyCode === 13 && vm.parseCard('turnCard')"
+                    >
+            </div>
+        </div>
+
+        <!-- End: Turn cards -->
+
+        <!-- Start: River card -->
+        <div class="control-group">
+            <span class="control-label">River:</span>
+            <div class="controls form-inline">
+                <!-- <label for="inputKey">Flop</label> -->
+                <input 
+                    type="text" 
+                    class="card-input" 
+                    ng-model="riverCard"
+                    ng-keydown="$event.keyCode === 13 && vm.parseCard('riverCard')"
+                    >
+            </div>
+        </div>
+        <!-- End: River cards -->
+
+
+
+        <!-- <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> -->
+    </div>
+
+    <!-- Pot Data Entry: -->
+    <div class="col-sm-12 col-lg-6">
+        <h2>Bank Roll</h2>
+        <!-- Start: Bank Roll -->
+        <div class="control-group">
+            <span class="control-label">Bank Roll:</span>
+            <div class="controls form-inline">
+                <input 
+                    type="text" 
+                    class="pot-input" 
+                    id="bankRollInput" 
+                    value="0" 
+                    ng-model="bankRollInput" 
+                    ng-change="vm.bankRollCtrl('bankRollInput')">
+            </div>
+        </div>
+        <h5>Max Bet For Hand: {{ vm.maxHandBet | number:0 }}</h5>
+        <!-- End: Bank Roll -->
+
+
+
+        <h2>Pot</h2>
+        <!-- Start: Bet -->
+        <div class="control-group">
+            <span class="control-label">Bet:</span>
+            <div class="controls form-inline">
+                <input 
+                    type="text" 
+                    class="pot-input" 
+                    id="betInput" 
+                    value="0" 
+                    ng-model="bet" 
+                    ng-change="vm.betCtrl('bet')"
+                    >
+            </div>
+        </div>
+        <!-- End: Bet -->
+        
+        <!-- Start: Ante -->
+      <!--   <div class="control-group">
+            <span class="control-label">Ante:</span>
+            <div class="controls form-inline">
+                <input type="text" class="pot-input" id="antiInput" defaultValue="0" ng-model="potAnte" ng-keydown="$event.keyCode === 13 && vm.updatePot()">
+            </div>
+        </div> -->
+        <!-- End: Ante -->
+
+        <!-- Start: Pot -->
+        <div class="control-group">
+            <span class="control-label">Pot:</span>
+            <div class="controls form-inline">
+                <input 
+                    type="text" 
+                    class="pot-input" 
+                    id="potInput" 
+                    value="0" 
+                    ng-model="pot" 
+                    ng-change="vm.potCtrl('pot')"
+                    >
+            </div>
+        </div>
+        <!-- End: Pot -->
+    </div>
+
+
+  </div>
+
+  <!-- Odd calculations  -->
+  <div class="row">
+
+    <!-- card odds: -->
+    <div class="col-sm-12 col-lg-6">
+      <h2>Pre Flop Odds: 1:{{ vm.pre_flop_odds | number:1 }} ({{ vm.pre_flop_percent | number:1 }}%)</h2>
+      <h5>Odds of winning hand: {{ vm.pre_flop_percent | number:1 }}%</h5>
+    </div>
+
+    <!-- pot odds: -->
+    <div class="col-sm-12 col-lg-6">
+      <h2>Pot Odds: 1:{{ vm.pot_odds | number:1 }}</h2>
+      <h5>Probability: {{ vm.pot_percent | number:1}}%</h5>
+
+ <!--      <h5>Current Pot Odds: 1:{{ vm.potOdds.current_potOdds | number:1 }}</h5>
+      <br>
+      <h5>Total Pot Odds: 1:{{ vm.potOdds.total_potOdds | number:1 }}</h5>
+      <h5>Total Pot Odds: {{ vm.potOdds.total_potOdds_percent | number:1}}%</h5> -->
+
+
+    </div>
+
+  </div>
+
+
+</div>

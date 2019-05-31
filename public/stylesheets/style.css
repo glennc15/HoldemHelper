@@ -1,8 +1,31 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.review {padding-bottom: 5px;}
+.panel-body.review-container {padding-top: 0;}
+.review-header {margin-bottom: 10px;}
+.reviewAuthor {margin: 0 5px;}
+.reviewTimestamp {color: #ccc;}
+
+.label-facility {margin-right: 2px}
+.rating-stars {margin-left: 3px;}
+#filter {margin-left: 4px;}
+
+.rsi-card {border-width: 12px;
+			margin: 10px;}
+
+.card-input {
+	width: 50px;
+	/*padding: 10px;*/
+	margin-right: 15px;
 }
 
-a {
-  color: #00B7FF;
+.pot-input {
+	width: 100px;
+	/*padding: 10px;*/
+	/*margin-right: 15px;*/
+}
+
+/*a {text-decoration: none;}			*/
+
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
 }

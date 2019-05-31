@@ -1,0 +1,96 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "highcharts@^6.1.1",
+        "scope": null,
+        "escapedName": "highcharts",
+        "name": "highcharts",
+        "rawSpec": "^6.1.1",
+        "spec": ">=6.1.1 <7.0.0",
+        "type": "range"
+      },
+      "/Users/glenn/Documents/Books/GettingMean/CH10/getting-MEAN"
+    ]
+  ],
+  "_from": "highcharts@>=6.1.1 <7.0.0",
+  "_id": "highcharts@6.1.1",
+  "_inCache": true,
+  "_location": "/highcharts",
+  "_nodeVersion": "8.7.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/highcharts_6.1.1_1530091585930_0.3573948810540515"
+  },
+  "_npmUser": {
+    "name": "torsteinhonsi",
+    "email": "torstein@highsoft.com"
+  },
+  "_npmVersion": "5.5.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "highcharts@^6.1.1",
+    "scope": null,
+    "escapedName": "highcharts",
+    "name": "highcharts",
+    "rawSpec": "^6.1.1",
+    "spec": ">=6.1.1 <7.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/highcharts/-/highcharts-6.1.1.tgz",
+  "_shasum": "49dc34f5e963744ecd7eb87603b6cdaf8304c13a",
+  "_shrinkwrap": null,
+  "_spec": "highcharts@^6.1.1",
+  "_where": "/Users/glenn/Documents/Books/GettingMean/CH10/getting-MEAN",
+  "author": {
+    "name": "Highsoft AS",
+    "email": "support@highcharts.com",
+    "url": "http://www.highcharts.com/about"
+  },
+  "bugs": {
+    "url": "https://github.com/highcharts/highcharts/issues"
+  },
+  "dependencies": {},
+  "description": "JavaScript charting framework",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-etFYUPb+CwG9mrTb08IS4k3XGXs94xSA9vNF1yTJLxL/rw6t9U0InrcMRKG7IVNc5MolMXOPAPCdkuzKXV3Gng==",
+    "shasum": "49dc34f5e963744ecd7eb87603b6cdaf8304c13a",
+    "tarball": "https://registry.npmjs.org/highcharts/-/highcharts-6.1.1.tgz",
+    "fileCount": 970,
+    "unpackedSize": 28647517,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbM1hCCRA9TVsSAnZWagAAfuwP/jKTZwyXfUr66Du0Heqx\n+JqPO0D2EXvcF2hPIklRr92EUuIXzTs7Csn3W7DmO3yIqWXeKWyWWMYFAX23\n2CC/rpOu8ME+hMEXUxY23ZUyHtutrW79kOZmuRZdMBdt/9D2FlgE2WX2WipE\nPbEzYbSNnYwLhTsapQOwiD0sj29Mu2GfCh1JinAumXNr5XcyMKlWuByVHmDP\nWenFUOXzjFJP2bQkJITCgixoGk7fScCS/aKxLfaitNDBrnaBgkj79AdEkrz2\n7dWwPwVbx5tRXQQNfnIToNnNImMnvJ3Q5PLrNcNZi4Nd6p/vZ31wNNfIWl+L\nH/gGqBfzp06TKpAaq5rKsO5QjaZP7XCwWnrN6Ll4RI+t778/AXSMn2V4WcVA\nb4pUoXFmJCyhcDxO5v9q3DC4opknZwk5hBnOY46JmeJC9Y4XiNS9zmGqnoVv\npzobk/2Rjga008oH9A5O0F066lEtvsJe9jysqmTrlNVWtWBjN8V2ucXF2qUm\n0Ga0R3VJ9pJVHPo4uXiDT2VqZcKci6Az+XzO6k0zqhc+F1FFissTT6myFwlB\nUMy0T6WwyI5lVcsyABzQbOgS5XXHkAWYN2C1jtDvV98MWGRa5qv+NB72rgF0\nVi5Y0jIQjoACF/a+S7QY+LhO64kUSAVH63ss5XuI7owSotzbvbfaeMclYP2T\noV1m\r\n=xohR\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "e81c3e82c7cacb0b12f2512fbf6e94e62dda65fe",
+  "homepage": "http://www.highcharts.com",
+  "keywords": [
+    "charts",
+    "dataviz",
+    "graphs",
+    "visualization",
+    "data",
+    "browserify",
+    "webpack"
+  ],
+  "license": "https://www.highcharts.com/license",
+  "main": "highcharts.js",
+  "maintainers": [
+    {
+      "name": "highsoft",
+      "email": "torstein@highsoft.com"
+    }
+  ],
+  "name": "highcharts",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/highcharts/highcharts-dist.git"
+  },
+  "version": "6.1.1"
+}
